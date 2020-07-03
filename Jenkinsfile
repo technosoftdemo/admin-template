@@ -2,13 +2,13 @@ import java.text.SimpleDateFormat
 
 pipeline {
   environment {
-    registry = "technosoftdemo/raze"
+    registry = "technosoftdemo/admin"
     registryCredential = 'TSDemoDockerhub'
     dockerImage = ''
-    versionNumber = "V1.0.100.${currentBuild.number}"
+    versionNumber = "V1.0.0.${currentBuild.number}"
 	// JOB Metrics parameter
     JobName = "${JOB_NAME}"
-    BuildNumber = "V1.0.100.${currentBuild.number}"
+    BuildNumber = "V1.0.0.${currentBuild.number}"
     commitId = ''
     SQTaskId = ''
     SQTaskUrl=''
@@ -29,7 +29,7 @@ pipeline {
 	    script {
           jobStartedAt = new Date()
           }
-          git branch: 'dev', credentialsId: 'Technosoft-git', url: 'https://github.com/technosoftdemo/RDTED.git'
+          git branch: 'dev', credentialsId: 'Technosoft-git', url: 'https://github.com/technosoftdemo/admin.git'
       }
     }
      stage('Install Packages') {
@@ -119,8 +119,8 @@ pipeline {
       steps{
 	  script {
         //sh "docker stop fireball"
-         sh "sudo docker rm -f raze || true"
-        sh "sudo docker run --name raze -d -p 8090:80 "+registry+":"+versionNumber
+         sh "sudo docker rm -f admin || true"
+        sh "sudo docker run --name admin -d -p 9090:80 "+registry+":"+versionNumber
 		}
       }
     }

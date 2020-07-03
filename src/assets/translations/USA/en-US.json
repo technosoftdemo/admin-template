@@ -1,0 +1,12 @@
+{
+    "header": {
+        "Home": "Home",
+        "Header Content goes here": "header cotent must be defined here"
+    },
+    "Home": {
+        "Home page content": "Home page content goes here"
+    },
+    "Login": {
+        "Click to Login": "Click here to Login"
+    }
+}

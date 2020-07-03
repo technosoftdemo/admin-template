@@ -1,0 +1,116 @@
+<!-- <h1>{{'header.Header Content goes here'| translate }}</h1> -->
+<div>
+  <mat-toolbar color="secondary" class="rpa-navigation-bar header-container">
+    <mat-toolbar-row >
+
+      <!-- <button mat-icon-button>
+        <mat-icon>menu</mat-icon>
+      </button> -->
+
+      <span class="toolbar-title"> <img [src]="logoPath" routerLink = "/projects/dashboard" class="companyLogo" /></span>
+      <div fxFlex fxLayout fxLayoutAlign="flex-end" *ngIf="displayUserActionPane === true">
+
+        <ul fxLayout fxLayoutGap="20px" class="navigation-items">
+
+          <li fxHide.xs>
+            <button mat-icon-button>
+              <mat-icon>settings</mat-icon>
+            </button>
+          </li>
+
+          <li fxHide.xs>
+            <button mat-icon-button>
+              <mat-icon>help_outline</mat-icon>
+            </button>
+          </li>
+
+          <li>
+            <button mat-icon-button [matMenuTriggerFor]="auth">
+              <mat-icon>person_outline</mat-icon>
+            </button>
+            <mat-menu #auth="matMenu">
+              <button mat-menu-item (click)="logout()">
+                <mat-icon>exit_to_app</mat-icon>
+                <span>Sign out</span>
+              </button>
+            </mat-menu>
+          </li>
+          <li fxHide.xs>
+            <button mat-icon-button>
+              <mat-icon class="material-icons-outlined">notifications_none</mat-icon>
+            </button>
+          </li>
+        </ul>
+
+      </div>
+
+    </mat-toolbar-row>
+
+  </mat-toolbar>
+
+  <mat-sidenav-container autosize>
+
+    <mat-sidenav #navigationSidenav mode="over" role="navigation">
+
+      <mat-toolbar>
+        <mat-toolbar-row>
+          <h2 class="toolbar-title"> APP_TOOLBAR_TITLE </h2>
+        </mat-toolbar-row>
+      </mat-toolbar>
+
+      <mat-nav-list>
+
+        <h2 matSubheader> MY_WORK</h2>
+
+        <a mat-list-item routerLink="/" style="height: 0;"></a>
+
+        <!-- <a *ngFor="let item of myWorkRoutes"
+          mat-list-item
+          (click)="navigationSidenav.close()"
+          [routerLink]="[item.route]"
+          routerLinkActive="list-item-active">
+          <mat-icon matListIcon class="app-nav-list-icon"> {{ item.icon }} </mat-icon>
+          {{item.title}}
+        </a> -->
+
+        <mat-divider></mat-divider>
+
+        <h2 matSubheader> CUSTOMERS </h2>
+
+        <!-- <a *ngFor="let item of customerRoutes"
+          mat-list-item
+          (click)="navigationSidenav.close()"
+          [routerLink]="[item.route]"
+          routerLinkActive="list-item-active">
+          <mat-icon matListIcon class="app-nav-list-icon"> {{ item.icon }} </mat-icon>
+          {{item.title}}
+        </a>
+   -->
+      </mat-nav-list>
+
+    </mat-sidenav>
+
+    <mat-sidenav #commandbarSidenav position="end" mode="side" class="crm-command-bar-sidenav">
+
+      <mat-list style="padding: 10px;">
+
+        <!-- <mat-card *ngFor="let item of toolPaletteItems" style="padding: 8px; margin-bottom: 10px; text-align: center;">
+  
+          <img mat-card-sm-image
+               [src]="item.icon"
+               [alt]="item.name"
+               draggable="true"
+               (dragstart)="onDragStart($event, item.id)">
+  
+          <mat-card-content>
+            <mat-card-subtitle>
+              {{item.name}}
+            </mat-card-subtitle>
+          </mat-card-content>
+  
+        </mat-card> -->
+
+      </mat-list>
+    </mat-sidenav>
+  </mat-sidenav-container>
+</div>

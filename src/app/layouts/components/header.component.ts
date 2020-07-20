@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { CacheService } from '@core/services/cache.service';
 import { EventBrokerService } from '@core/services/event-broker.service';
 import { Constants } from '@core/constants/cachekey.constant';
+import { CartService } from '@core/services/cart.service';
 
 @Component({
     selector: 'app-header',
@@ -15,18 +16,22 @@ export class HeaderComponent implements OnInit {
     displayUserActionPane = false;
     logoPath = '';
     userName = '';
+    itemCount: number = 0;
     constructor(private _authService: AuthService,
         private _cacheService: CacheService,
         private _eventBrokerService: EventBrokerService,
+        private _cartService: CartService,
         private _router: Router) {
 
     }
 
     ngOnInit(): void {
         this.setImagePath();
+        this.cartCountSubscription();
         this.subscribeToLogout();
         this.setUserActionPanelDisplayMode();
         this.setUserName();
+
     }
 
     subscribeToLogout() {
@@ -34,6 +39,18 @@ export class HeaderComponent implements OnInit {
             this._authService.logout();
             this.setUserActionPanelDisplayMode();
         });
+    }
+
+    cartCountSubscription() {
+        this._cartService.getCart();
+        this._eventBrokerService.subscribe(Constants.Events.CartCount).subscribe(res => {
+            debugger;
+            this.itemCount = res;
+        });
+    }
+
+    login() {
+        this._router.navigateByUrl('./Auth/login');
     }
 
     setUserActionPanelDisplayMode(): void {
@@ -45,8 +62,11 @@ export class HeaderComponent implements OnInit {
         this.logoPath = (environment.production === true ? 'img/logo.png' : 'assets/img/logo.png');
     }
 
-    setUserName(){
-        this.userName = this._authService.getUserInfo().userName;
+    setUserName() {
+        const userInfo = this._authService.getUserInfo();
+        if (userInfo) {
+            this.userName = this._authService.getUserInfo().userName;
+        }
     }
 
     logout() {

@@ -7,7 +7,7 @@ import { AuthGuard, NoAuthGuard } from './core';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/auth/login',
+    redirectTo: '/products',
     pathMatch: 'full'
   },
   {
@@ -20,6 +20,18 @@ const routes: Routes = [
         loadChildren: () => import('@modules/home/home.module').then(m => m.HomeModule)
       }
     ]
+  },
+  {
+    path: 'products',
+    component: LayoutComponent,
+    canActivate: [NoAuthGuard],
+    loadChildren: () => import('@modules/products/products.module').then(m => m.ProductsModule)
+  },
+  {
+    path: 'cart',
+    component: LayoutComponent,
+    canActivate: [NoAuthGuard],
+    loadChildren: () => import('@modules/cart/cart.module').then(m => m.CartModule)
   },
   {
     path: 'auth',

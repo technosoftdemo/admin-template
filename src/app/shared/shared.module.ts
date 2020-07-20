@@ -15,6 +15,10 @@ import { ClipboardModule } from 'ngx-clipboard';
 import { NgScrollbarModule } from 'ngx-scrollbar';
 import { ChartsModule } from 'ng2-charts';
 import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+import { NotificationToasterService } from './services/notification-toaster.service';
+import { CookieService } from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
@@ -50,16 +54,16 @@ import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
     TranslateDirective,
     ConfirmDialogComponent,
     AlertDialogComponent,
-    //BrowserAnimationsModule,
     MatDialogModule,
     NgxChartsModule,
     EllipsisPipe,
     ClipboardModule,
     NgScrollbarModule,
     ChartsModule,
-    NgxMatSelectSearchModule
+    NgxMatSelectSearchModule,
+    ToastrModule
   ],
-  providers: [DialogService],
+  providers: [DialogService, NotificationToasterService, CookieService],
   entryComponents: [
     ConfirmDialogComponent,
     AlertDialogComponent

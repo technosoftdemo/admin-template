@@ -17,6 +17,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { CommonModule } from '@angular/common';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [HeaderComponent, AppComponent,
@@ -32,6 +33,7 @@ import { CommonModule } from '@angular/common';
     HttpClientModule,
     MaterialModule,
     FlexLayoutModule,
+    ToastrModule.forRoot(),
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [CookieService],

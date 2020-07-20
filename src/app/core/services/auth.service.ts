@@ -48,7 +48,7 @@ export class AuthService {
     }
 
     logout() {
-        this._cacheService.removeAll(true);
+        //this._cacheService.removeAll(true);
         this._userInfo = null;
         this._authToken = null;
     }

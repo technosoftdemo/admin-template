@@ -18,7 +18,7 @@ export class AppComponent implements OnInit {
   title = 'TechMonks';
 
   constructor(private _translateService: TranslateService,
-    private _authService: AuthService, 
+    private _authService: AuthService,
     private _eventBrokerService: EventBrokerService,
     private _router: Router) {
   }
@@ -26,9 +26,8 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this._translateService.use("en-US");
     this._eventBrokerService.register(Constants.Events.Logout);
-    // if (this._authService.isUserLoggedIn()) {
-    //   this.redirectToDashboard();
-    // }
+    this._eventBrokerService.register(Constants.Events.CartCount);
+    this._eventBrokerService.register(Constants.Events.reloadCart);
   }
 
   /**

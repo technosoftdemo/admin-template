@@ -1,0 +1,10 @@
+<div fxLayout="column" fxFlex="100" fxLayoutWrap>
+    <div fxLayout="row">
+        <div fxLayout="column" fxFlex="20%" fxLayoutWrap>
+            <ts-categories-list [categories]="categories" (categorySelected)="onCategorySelection($event)"></ts-categories-list>
+        </div>
+        <div fxLayout="column" fxFlex="80%" fxLayoutWrap>
+            <ts-products-list [products]="products"></ts-products-list>
+        </div>
+    </div>
+</div>

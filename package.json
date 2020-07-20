@@ -14,7 +14,7 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "^9.0.0",
+    "@angular/animations": "^9.1.12",
     "@angular/cdk": "^9.0.0",
     "@angular/common": "^9.0.0",
     "@angular/compiler": "^9.0.0",
@@ -53,6 +53,7 @@
     "ngx-cookie-service": "^2.2.0",
     "ngx-mat-select-search": "^2.2.0",
     "ngx-scrollbar": "^7.2.1-beta.0",
+    "ngx-toastr": "^13.0.0",
     "rxjs": "^6.5.5",
     "safe-buffer": "^5.2.0",
     "tinymce": "^5.0.15",

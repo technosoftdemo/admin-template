@@ -1,0 +1,35 @@
+<div class="product-img-container">
+    <!-- <a class="product-link"> -->
+    <img class="product-img" alt=""
+        [src]="product.imageUrl">
+    <!-- </a> -->
+</div>
+<div class="product-info-wrapper">
+    <div class="stars" style="font-size: 10px;">
+        <ng-container *ngFor="let i of [].constructor(product.rating)">
+            <mat-icon class="mat-icon-xs mat-icon" role="img" aria-hidden="true">star_rate</mat-icon>
+        </ng-container> 
+        <!-- ({{product.rating}}/5) -->
+    </div>
+    <div class="product-title">
+        <span>{{product.name}}</span>
+    </div>
+    <div class="price">
+        <span>{{product.price | currency}}</span>
+    </div>
+    <div>
+        <div fxFlex=100>
+            <!-- <div fxFlex="20">
+                <input class="qty" maxlength="3" type="tel" value="1" />
+            </div> -->
+            <div fxFlex="100">
+                <!-- <a tabindex="0" class="add-to-cart" title="Add to Bag">Add to Bag
+                    <span tabindex="0" class="loading-spinner">
+                        <i class="fa fa-spinner"></i>
+                    </span>
+                </a> -->
+                <button class="add-to-cart" (click)="addItem(product)">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+</div>

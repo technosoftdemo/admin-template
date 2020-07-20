@@ -1,0 +1,94 @@
+<div fxFlex="100" fxLayout="column" style="background-color: #ffffff;">
+    <div fxFlex="100" fxLayout="column" style="margin:50px;">
+        <!-- <div class="main-heading">Shopping Cart</div> -->
+        <div fxFlex="100">
+            <mat-icon style="vertical-align: middle;cursor: pointer;" (click)="back()">
+                arrow_back
+            </mat-icon> Back
+        </div>
+        <div fxFlex="100" fxLayout="row">
+            <ng-container *ngIf="cart != undefined && cart !== null && cart.items.length > 0">
+                <div fxFlex="100" fxLayout="column" class="shopping-cart">
+                    <div fxFlex="100" fxLayout="row" class="shopping-cart-header">
+                        <div fxFlex="10" class="shopping-cart-header-cell">
+                            Image
+                        </div>
+                        <div fxFlex="disableCart ?'40':'55'" class="shopping-cart-header-cell">
+                            Product Name
+                        </div>
+                        <div fxFlex="15" class="shopping-cart-header-cell">
+                            Unit Price
+                        </div>
+                        <div fxFlex="15" class="shopping-cart-header-cell">
+                            Quantity
+                        </div>
+                        <div fxFlex="15" class="shopping-cart-header-cell">
+                            Total Price
+                        </div>
+                        <ng-container *ngIf="!disableCart">
+                            <div fxFlex="15" class="shopping-cart-header-cell">
+                            </div>
+                        </ng-container>
+                    </div>
+                    <div class="shopping-cart-item-row" fxFlex="100" *ngFor="let item of cart.items; let i = index;">
+                        <div fxFlex="10" class="shopping-cart-item-cell padding-5 border-left border-bottom">
+                            <!-- {{item.serialNo}} -->
+                            <div class="cart-img-container">
+                                <!-- <a class="product-link"> -->
+                                <img class="cart-img" alt="" [src]="item.imgUrl">
+                                <!-- </a> -->
+                            </div>
+                        </div>
+                        <div fxFlex="disableCart ?'40':'55'" class="shopping-cart-item-cell border-bottom">
+                            <span>{{item.productName}}</span><br />
+                            <!-- <span>SKU#: {{item.code}}</span> -->
+                        </div>
+                        <div fxFlex="15" class="shopping-cart-item-cell border-bottom">
+                            <span class="padding-5">{{item.price | currency}}</span>
+                        </div>
+                        <div fxFlex="15" class="shopping-cart-item-cell border-bottom">
+                            <ng-container *ngIf="!disableCart">
+                                <input class="qty" type="text" min="1" maxlength="3"
+                                    onkeydown="return event.keyCode !== 69" maxlength="3"
+                                    (change)="updateQuantity(item,$event)" value="{{item.quantity}}" />
+                            </ng-container>
+                            <ng-container *ngIf="disableCart">
+                                <span style="width:40px;">{{item.quantity}}</span>
+                            </ng-container>
+                        </div>
+                        <div fxFlex="15" class="shopping-cart-item-cell border-bottom">
+                            <span class="padding-5">{{(item.price * item.quantity) | currency}}</span>
+                        </div>
+                        <ng-container *ngIf="!disableCart">
+                            <div fxFlex="15" class="shopping-cart-item-cell border-bottom border-right">
+                                <mat-icon style="cursor: pointer;cursor: pointer;padding-top:3px;"
+                                    (click)="deleteItem(item)">
+                                    delete_forever
+                                </mat-icon>
+                            </div>
+                        </ng-container>
+                    </div>
+                    <ng-container *ngIf="!disableCart">
+                        <div class="shopping-cart-item-row">
+                            <div fxFlex="70" class="shopping-cart-item-cell border-left border-bottom"
+                                style="float: inline-end;text-align: right;">
+                                Total:
+                            </div>
+                            <div fxFlex="30" class="shopping-cart-item-cell border-bottom border-right">
+                                <span style="padding-left: 5px;font-weight: 600;">{{cart.subTotal | currency}}</span>
+                            </div>
+                        </div>
+                    </ng-container>
+                </div>
+            </ng-container>
+            <ng-container *ngIf="cart == undefined || cart == null || cart.items.length == 0">
+                <div fxFlex="100" fxLayout="column" class="shopping-cart">
+                    <h4>Your cart is empty!</h4>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+    <!-- <div fxFlex="100" fxLayout="column">
+        {{cart | json}}
+    </div> -->
+</div>

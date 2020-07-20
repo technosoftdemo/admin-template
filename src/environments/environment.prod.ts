@@ -2,6 +2,8 @@ declare var apiConfig: any;
 export const environment = {
   production: true,
   apiUrl: 'https://rdted.technosoftcorp.net/api',
+  productsApiSuffix:'products-api',
+  cartAPISuffix:'cart-api',
   encryptionKey:"",
   baseHref: document.getElementsByTagName('base')[0].href,
   cdnURL:'',

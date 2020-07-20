@@ -436,3 +436,49 @@ button[disabled]{
     color: black !important;
     font-size:15px;
   }
+
+  
+  .mat-form-field-label{
+    color: black !important;
+    font-size:15px;
+  }
+
+  .loading-spinner{
+    top: 9px;
+    position: absolute;
+    font-size: 24px;
+    right: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    .fa-spinner{
+        animation: loading-bar-spinner 1500ms linear infinite;
+    }
+  }
+  .login-underline{
+    text-decoration: underline;
+  }
+  @keyframes loading-bar-spinner {
+    0%   { transform: rotate(0deg);   transform: rotate(0deg); }
+    100% { transform: rotate(360deg); transform: rotate(360deg); }
+  }
+  .padding-5{
+    padding:10px;
+  }
+
+  .main-heading {
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    margin: 10px;
+}
+
+.qty{
+  height:28px;
+  width:35px !important;
+  line-height: 18px;
+  width: 100%;
+  border-width: 2px;
+  text-align: center;
+  margin-top: 1px;
+  border:2px solid  #286090 !important;
+}
+

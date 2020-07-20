@@ -1,0 +1,5 @@
+<div fxLayout="row" fxFlex="100" fxLayout="row wrap">
+    <mat-card style="margin: 5px;" *ngFor="let product of products" fxlayout="column" fxFlex="30">
+        <ts-product [product]="product" (addItemToCart)=addItem($event)></ts-product>
+    </mat-card>
+</div>

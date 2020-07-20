@@ -4,12 +4,13 @@
 declare var apiConfig: any;
 export const environment = {
   production: false,
-  apiUrl: 'https://rdted.technosoftcorp.net/api/',
-  //uiTemplateBaseUrl: document.getElementsByTagName('base')[0].href + '/resources/static/src/assets',
+  apiUrl: 'https://tedapi.technosoftcorp.net/',
+  productsApiSuffix:'products-api',
+  cartAPISuffix:'cart-api',
   baseHref: document.getElementsByTagName('base')[0].href,
   encryptionKey:'',
   cdnURL:'',
-  apiGatewayUrl:'https://tedapi.technosoftcorp.net/usr-api',
+  apiGatewayUrl:'https://tedapi.technosoftcorp.net/',
   codeQualityUrl:'https://tedapi.technosoftcorp.net/usr-api/'
 };
 

@@ -8,32 +8,33 @@
       </button> -->
 
       <span class="toolbar-title"> <img [src]="logoPath" routerLink = "/projects/dashboard" class="companyLogo" /></span>
-      <div fxFlex fxLayout fxLayoutAlign="flex-end" *ngIf="displayUserActionPane === true">
+      <div fxFlex fxLayout fxLayoutAlign="flex-end">
 
         <ul fxLayout fxLayoutGap="20px" class="navigation-items">
 
           <li fxHide.xs>
             <button mat-icon-button>
-              <mat-icon>settings</mat-icon>
+              <mat-icon fontSet="material-icons-outlined" [routerLink]="['/cart']" matBadge="15">shopping_bag</mat-icon>
+              <span>{{itemCount}}</span>
             </button>
           </li>
 
-          <li fxHide.xs>
+          <!-- <li fxHide.xs>
             <button mat-icon-button>
               <mat-icon>help_outline</mat-icon>
             </button>
-          </li>
+          </li> -->
 
-          <li>
+          <li (click)="login()">
             <button mat-icon-button [matMenuTriggerFor]="auth">
               <mat-icon>person_outline</mat-icon>
             </button>
-            <mat-menu #auth="matMenu">
+            <!-- <mat-menu #auth="matMenu">
               <button mat-menu-item (click)="logout()">
                 <mat-icon>exit_to_app</mat-icon>
                 <span>Sign out</span>
               </button>
-            </mat-menu>
+            </mat-menu> -->
           </li>
           <li fxHide.xs>
             <button mat-icon-button>

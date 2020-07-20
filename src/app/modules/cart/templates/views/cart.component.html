@@ -13,7 +13,7 @@
                         <div fxFlex="10" class="shopping-cart-header-cell">
                             Image
                         </div>
-                        <div fxFlex="disableCart ?'40':'55'" class="shopping-cart-header-cell">
+                        <div fxFlex="55" class="shopping-cart-header-cell">
                             Product Name
                         </div>
                         <div fxFlex="15" class="shopping-cart-header-cell">
@@ -25,10 +25,10 @@
                         <div fxFlex="15" class="shopping-cart-header-cell">
                             Total Price
                         </div>
-                        <ng-container *ngIf="!disableCart">
+                        <!-- <ng-container >
                             <div fxFlex="15" class="shopping-cart-header-cell">
                             </div>
-                        </ng-container>
+                        </ng-container> -->
                     </div>
                     <div class="shopping-cart-item-row" fxFlex="100" *ngFor="let item of cart.items; let i = index;">
                         <div fxFlex="10" class="shopping-cart-item-cell padding-5 border-left border-bottom">
@@ -39,7 +39,7 @@
                                 <!-- </a> -->
                             </div>
                         </div>
-                        <div fxFlex="disableCart ?'40':'55'" class="shopping-cart-item-cell border-bottom">
+                        <div fxFlex="55" class="shopping-cart-item-cell border-bottom">
                             <span>{{item.productName}}</span><br />
                             <!-- <span>SKU#: {{item.code}}</span> -->
                         </div>
@@ -47,19 +47,19 @@
                             <span class="padding-5">{{item.price | currency}}</span>
                         </div>
                         <div fxFlex="15" class="shopping-cart-item-cell border-bottom">
-                            <ng-container *ngIf="!disableCart">
+                            <ng-container >
                                 <input class="qty" type="text" min="1" maxlength="3"
                                     onkeydown="return event.keyCode !== 69" maxlength="3"
                                     (change)="updateQuantity(item,$event)" value="{{item.quantity}}" />
                             </ng-container>
-                            <ng-container *ngIf="disableCart">
+                            <!-- <ng-container *ngIf="disableCart">
                                 <span style="width:40px;">{{item.quantity}}</span>
-                            </ng-container>
+                            </ng-container> -->
                         </div>
                         <div fxFlex="15" class="shopping-cart-item-cell border-bottom">
                             <span class="padding-5">{{(item.price * item.quantity) | currency}}</span>
                         </div>
-                        <ng-container *ngIf="!disableCart">
+                        <ng-container >
                             <div fxFlex="15" class="shopping-cart-item-cell border-bottom border-right">
                                 <mat-icon style="cursor: pointer;cursor: pointer;padding-top:3px;"
                                     (click)="deleteItem(item)">
@@ -68,7 +68,7 @@
                             </div>
                         </ng-container>
                     </div>
-                    <ng-container *ngIf="!disableCart">
+                    <ng-container >
                         <div class="shopping-cart-item-row">
                             <div fxFlex="70" class="shopping-cart-item-cell border-left border-bottom"
                                 style="float: inline-end;text-align: right;">

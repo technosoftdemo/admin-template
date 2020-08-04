@@ -26,12 +26,12 @@ RUN npm run postinstall && \
     npm run build:ssr
 
 #Stage 2
-FROM nginx:alpine
-
+#FROM nginx:alpine
+#FROM base AS release
 ## Copy our default nginx config
 #COPY nginx/default.conf /etc/nginx/conf.d/
 
-
+FROM base AS release
 ## Remove default nginx website
 #UN rm -rf /usr/share/nginx/html/*
 ## From ‘builder’ stage copy over the artifacts in dist folder to default nginx public folder

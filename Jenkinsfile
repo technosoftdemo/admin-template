@@ -62,7 +62,7 @@ pipeline {
 	           echo "${diff_files}"
 	           echo "changed files list end"
 
-        sh "npm run build:ssr"
+             //sh "npm run build:ssr"
       }
 	  }
     }

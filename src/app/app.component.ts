@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
 import { LocalStorageService } from "angular-2-local-storage";
 import { Router } from "@angular/router";
 import { HttpClient } from "@angular/common/http";
@@ -17,14 +16,12 @@ import { Constants } from '@core/constants/cachekey.constant';
 export class AppComponent implements OnInit {
   title = 'TechMonks';
 
-  constructor(private _translateService: TranslateService,
-    private _authService: AuthService,
+  constructor(private _authService: AuthService,
     private _eventBrokerService: EventBrokerService,
     private _router: Router) {
   }
 
   ngOnInit() {
-    this._translateService.use("en-US");
     this._eventBrokerService.register(Constants.Events.Logout);
     this._eventBrokerService.register(Constants.Events.CartCount);
     this._eventBrokerService.register(Constants.Events.reloadCart);

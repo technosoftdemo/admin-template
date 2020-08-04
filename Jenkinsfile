@@ -40,8 +40,8 @@ pipeline {
           }
         echo "current build number: "+versionNumber+"${currentBuild.number}"
         echo "previous build number: ${currentBuild.previousBuild.getNumber()}"
-        sh "npm install"
-        sh "npm run postinstall"
+       // sh "npm install"
+       // sh "npm run postinstall"
       }
     }
     stage('Build Binaries') {

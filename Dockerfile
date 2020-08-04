@@ -46,5 +46,5 @@ EXPOSE 80
 #CMD ["http-server"]
 #Run NGINX
 #CMD ["nginx", "-g", "daemon off;"]
-CMD [ "npm", "run", "serve:ssr" ]
+ENTRYPOINT [ "npm", "run", "serve:ssr" ]
 #CMD ["node", "/dist/server"]

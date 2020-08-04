@@ -16,28 +16,33 @@ WORKDIR /app
 ENV PATH /app/node_modules/.bin:$PATH
 
 COPY package.json /app/package.json
-#RUN npm install
-#RUN npm install -g @angular/cli@7.3.9
+RUN npm install
+RUN npm install -g @angular/cli
 
 COPY . .
 RUN ls
-#RUN npm install
-#RUN npm run postinstall && \
-#    npm run build
+RUN npm install
+RUN npm run postinstall && \
+    npm run build:ssr
 
 #Stage 2
 FROM nginx:alpine
 
 ## Copy our default nginx config
-COPY nginx/default.conf /etc/nginx/conf.d/
+#COPY nginx/default.conf /etc/nginx/conf.d/
+
 
 ## Remove default nginx website
-RUN rm -rf /usr/share/nginx/html/*
+#UN rm -rf /usr/share/nginx/html/*
 ## From ‘builder’ stage copy over the artifacts in dist folder to default nginx public folder
-COPY --from=builder /app/dist/* /usr/share/nginx/html/
+#COPY --from=builder /app/dist/* /usr/share/nginx/html/
+COPY --from=builder /app/dist/* /dist
 #RUN cp -a /app/dist/* /usr/share/nginx/html/
 #EXPOSE 80
 
+WORKDIR /dist/browser
+#CMD ["http-server"]
 #Run NGINX
-CMD ["nginx", "-g", "daemon off;"]
-#CMD [ "npm", "run", "serve:ssr" ]
+#CMD ["nginx", "-g", "daemon off;"]
+CMD [ "npm", "run", "serve:ssr" ]
+#CMD ["node", "/dist/server"]

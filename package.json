@@ -9,6 +9,7 @@
     "clean": "npm cache clean --force",
     "start-pwa": "ng build --prod --build-optimizer --vendor-chunk=true && http-server-spa dist/ index.html 8080",
     "build": "ng build --prod --build-optimizer --vendor-chunk=true",
+    "postinstall": "node patch.js && ngcc",
     "cibuild": "ng test --watch=false --code-coverage && ng build --prod --no-progress",
     "dev:ssr": "ng run rpa:serve-ssr",
     "serve:ssr": "node dist/rpa-server/main.js",

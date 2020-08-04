@@ -10,7 +10,6 @@
     "start-pwa": "ng build --prod --build-optimizer --vendor-chunk=true && http-server-spa dist/ index.html 8080",
     "build": "ng build --prod --build-optimizer --vendor-chunk=true",
     "cibuild": "ng test --watch=false --code-coverage && ng build --prod --no-progress",
-    "postinstall": "node patch.js && ngcc",
     "dev:ssr": "ng run rpa:serve-ssr",
     "serve:ssr": "node dist/rpa-server/main.js",
     "build:ssr": "ng build --prod && ng run rpa:server:production",
@@ -91,7 +90,7 @@
     "ts-node": "~7.0.0",
     "tslib": "^1.11.1",
     "tslint": "^6.1.1",
-    "typescript": "^3.6.4",
+    "typescript": "3.6.4",
     "webpack": "^4.42.1"
   }
 }

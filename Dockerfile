@@ -31,7 +31,7 @@ RUN npm run postinstall && \
 ## Copy our default nginx config
 #COPY nginx/default.conf /etc/nginx/conf.d/
 
-FROM base AS release
+FROM node:alpine
 ## Remove default nginx website
 #UN rm -rf /usr/share/nginx/html/*
 ## From ‘builder’ stage copy over the artifacts in dist folder to default nginx public folder

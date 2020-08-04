@@ -21,7 +21,7 @@ RUN npm install -g @angular/cli
 
 COPY . .
 RUN ls
-RUN npm install
+#RUN npm install
 RUN npm run postinstall && \
     npm run build:ssr
 
@@ -36,11 +36,13 @@ FROM nginx:alpine
 #UN rm -rf /usr/share/nginx/html/*
 ## From ‘builder’ stage copy over the artifacts in dist folder to default nginx public folder
 #COPY --from=builder /app/dist/* /usr/share/nginx/html/
-COPY --from=builder /app/dist/* /dist
+COPY --from=builder /app/dist/* /dist/
 #RUN cp -a /app/dist/* /usr/share/nginx/html/
 #EXPOSE 80
 
-WORKDIR /dist/browser
+ENV NODE_ENV "production"
+ENV PORT 80
+EXPOSE 80
 #CMD ["http-server"]
 #Run NGINX
 #CMD ["nginx", "-g", "daemon off;"]

@@ -22,7 +22,7 @@ export class ProductsListComponent implements OnInit {
     constructor(private _eventBrokerService: EventBrokerService,
         private _toasterMessageService: NotificationToasterService,
         private _cacheService: CacheService,
-        private _cartService:CartService) {
+        private _cartService: CartService) {
 
     }
 
@@ -31,12 +31,16 @@ export class ProductsListComponent implements OnInit {
     }
 
     loadCart() {
-        this.shoppingCart = this._cartService.getCart();
-        this._cartService.triggerCartCountUpdateEvent(this.shoppingCart.items.length);
+        const cart = this._cartService.getCart();
+        if (cart && cart.items) {
+            this.shoppingCart = cart;
+            this._cartService.triggerCartCountUpdateEvent(this.shoppingCart.items.length);
+        }
+
     }
 
     addItem(lineItem: OrderLineItemModel) {
-       this._cartService.addItem(lineItem);
+        this._cartService.addItem(lineItem);
         //this.triggerCartCountUpdateEvent(this.shoppingCart.items.length);
         this._toasterMessageService.showSuccess();
         // this.calculateSubTotal();

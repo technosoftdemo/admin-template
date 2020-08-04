@@ -42,7 +42,7 @@ export class AppTranslateService implements TranslateLoader, OnInit {
         else {
             // languageUrl = environment.baseHref + '/assets/translations/USA/json/'
             //     + homeCountryCode + '/' + language + '.json';
-            languageUrl = environment.baseHref + (environment.production === true ? '/assets/translations/USA/en-US.json' : '/assets/translations/USA/en-US.json');
+            languageUrl =''; // environment.baseHref + (environment.production === true ? '/assets/translations/USA/en-US.json' : '/assets/translations/USA/en-US.json');
         }
         return this.http
             .get(languageUrl)

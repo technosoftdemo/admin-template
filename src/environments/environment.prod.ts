@@ -4,7 +4,7 @@ export const environment = {
   apiUrl: 'https://tedapi.technosoftcorp.net/',
   productsApiSuffix:'products-api',
   cartAPISuffix:'cart-api',
-  baseHref: document.getElementsByTagName('base')[0].href,
+  //baseHref: document.getElementsByTagName('base')[0].href,
   encryptionKey:'',
   cdnURL:'',
   apiGatewayUrl:'https://tedapi.technosoftcorp.net/',

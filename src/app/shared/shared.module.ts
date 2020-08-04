@@ -19,12 +19,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { NotificationToasterService } from './services/notification-toaster.service';
 import { CookieService } from 'ngx-cookie-service';
+import { AppShellNoRenderDirective } from './directives/app-shell-no-render.directive';
+import { AppShellRenderDirective } from './directives/app-shell-render.directive';
 
 @NgModule({
   declarations: [
     ConfirmDialogComponent,
     AlertDialogComponent,
-    EllipsisPipe
+    EllipsisPipe,
+    AppShellNoRenderDirective,
+    AppShellRenderDirective
   ],
   imports: [
     CommonModule,
@@ -61,7 +65,9 @@ import { CookieService } from 'ngx-cookie-service';
     NgScrollbarModule,
     ChartsModule,
     NgxMatSelectSearchModule,
-    ToastrModule
+    ToastrModule,
+    AppShellNoRenderDirective,
+    AppShellRenderDirective
   ],
   providers: [DialogService, NotificationToasterService, CookieService],
   entryComponents: [

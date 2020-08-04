@@ -15,5 +15,7 @@ if (environment.production) {
   }
 }
 //Bootstraping App Module and log error in console incase of error
-platformBrowserDynamic().bootstrapModule(AppModule)
-  .catch(err => console.error(err));
+document.addEventListener('DOMContentLoaded', () => {
+  platformBrowserDynamic().bootstrapModule(AppModule)
+    .catch(err => console.error(err));
+});

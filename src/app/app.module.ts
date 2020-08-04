@@ -18,6 +18,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { CommonModule } from '@angular/common';
 import { ToastrModule } from 'ngx-toastr';
+import {TransferHttpCacheModule} from '@nguniversal/common';
 
 @NgModule({
   declarations: [HeaderComponent, AppComponent,
@@ -25,7 +26,8 @@ import { ToastrModule } from 'ngx-toastr';
     LoginLayoutComponent],
   imports: [
     CommonModule,
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    TransferHttpCacheModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     CoreModule,

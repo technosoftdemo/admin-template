@@ -1,3 +1,5 @@
+import { Privilege } from './privilege.interface';
+
 export interface UserModel {
     firstName:string;
     lastName:string;
@@ -5,4 +7,5 @@ export interface UserModel {
     emailId:string;
     id:string;
     userName:string;
+    privileges:Array<Privilege>;
 }

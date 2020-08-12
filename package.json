@@ -1,5 +1,5 @@
 {
-  "name": "raze",
+  "name": "admin",
   "version": "1.0.0",
   "scripts": {
     "ng": "ng",
@@ -11,10 +11,10 @@
     "build": "ng build --prod --build-optimizer --vendor-chunk=true",
     "postinstall": "node patch.js && ngcc",
     "cibuild": "ng test --watch=false --code-coverage && ng build --prod --no-progress",
-    "dev:ssr": "ng run rpa:serve-ssr",
-    "serve:ssr": "node dist/rpa-server/main.js",
-    "build:ssr": "ng build --prod && ng run rpa:server:production",
-    "prerender": "ng run rpa:prerender"
+    "dev:ssr": "ng run admin:serve-ssr",
+    "serve:ssr": "node dist/admin-server/main.js",
+    "build:ssr": "ng build --prod && ng run admin:server:production",
+    "prerender": "ng run admin:prerender"
   },
   "private": true,
   "dependencies": {

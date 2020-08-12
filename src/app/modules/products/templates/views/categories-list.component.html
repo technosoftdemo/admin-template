@@ -2,8 +2,9 @@
     <mat-card style="margin: 5px;" fxlayout="column">
         <ul>
             <h4>Top Catgories</h4>
-            <li *ngFor="let category of categories; let indexer=index" class="category-item" (click)="selectCategory(category, indexer)"
-            [ngClass]="{ 'category-highlight': indexer == selectedIndex }">{{category.name}} 
+            <li *ngFor="let category of categories; let indexer=index" class="category-item"
+                (click)="selectCategory(category, indexer)"
+                [ngClass]="{ 'category-highlight': indexer == selectedIndex }">{{category.name}}
                 <!-- <a class="category-item" tabindex="0" role="menuitem" >{{category.name}}</a> -->
             </li>
         </ul>

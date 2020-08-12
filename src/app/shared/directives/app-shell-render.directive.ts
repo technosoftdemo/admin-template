@@ -16,7 +16,6 @@ export class AppShellRenderDirective implements OnInit {
     }
 
     ngOnInit() {
-        debugger;
         if (isPlatformServer(this.platformId)) {
             this.viewContainer.createEmbeddedView(this.templateRef);
         }

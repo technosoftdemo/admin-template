@@ -16,7 +16,6 @@ export class CategoriesListComponent {
     categories: CategoryModel[];
 
     selectCategory(category: CategoryModel, indexer:number) {
-        debugger;
         this.categorySelected.emit(category);
         this.selectedIndex = indexer;
         console.log(this.selectedIndex);

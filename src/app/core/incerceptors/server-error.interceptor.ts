@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { 
-  HttpEvent, HttpRequest, HttpHandler, 
-  HttpInterceptor, HttpErrorResponse 
+import {
+  HttpEvent, HttpRequest, HttpHandler,
+  HttpInterceptor, HttpErrorResponse
 } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
-import { LoggerService } from '@core/services/logger.service';
+import { LoggerService } from '@core/services/logger/logger.service';
 
 @Injectable()
 export class ServerErrorInterceptor implements HttpInterceptor {
@@ -15,7 +15,7 @@ export class ServerErrorInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
     return next.handle(request).pipe(
-     // retry(1),
+      // retry(1),
       catchError((error: HttpErrorResponse) => {
         if (error.status === 401) {
           // refresh token
@@ -28,10 +28,10 @@ export class ServerErrorInterceptor implements HttpInterceptor {
             // server-side error
             errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
           }
-          this._loggerService.logError(error);
+          this._loggerService.error('Server Error Handler Interceptor', 'Intercept', errorMessage);
           return throwError(errorMessage);
         }
       })
-    );    
+    );
   }
 }

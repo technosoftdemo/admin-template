@@ -1,18 +1,21 @@
 <div class="product-img-container">
-    <!-- <a class="product-link"> -->
+    <a (click)= "navigateToProductDetails(product.id)">
     <img class="product-img" alt=""
-        [src]="product.imageUrl">
-    <!-- </a> -->
+        [src]="product.imageUrl" >
+    </a>
 </div>
 <div class="product-info-wrapper">
     <div class="stars" style="font-size: 10px;">
-        <ng-container *ngFor="let i of [].constructor(product.rating)">
-            <mat-icon class="mat-icon-xs mat-icon" role="img" aria-hidden="true">star_rate</mat-icon>
-        </ng-container> 
+        <ng-container *hasPrivilege="['View_ProductRatings']">
+            <ng-container *ngFor="let i of [].constructor(product.rating)">
+                <mat-icon class="mat-icon-xs mat-icon" role="img" aria-hidden="true">star_rate</mat-icon>
+            </ng-container> 
+        </ng-container>
+        
         <!-- ({{product.rating}}/5) -->
     </div>
     <div class="product-title">
-        <span>{{product.name}}</span>
+ <span>{{product.name}}</span>
     </div>
     <div class="price">
         <span>{{product.price | currency}}</span>

@@ -18,7 +18,6 @@ export class CartService {
         private _eventBrokerService: EventBrokerService) { }
 
     getCart() {
-        debugger;
         const cart: CartModel = this._cacheService.get(Constants.CacheKey.CartInfo);
         if (cart) {
             this._cart = cart;
@@ -58,7 +57,6 @@ export class CartService {
     deleteItem(itemId: number) {
         this.getCart();
         this._shoppingCartService.deleteItem(this._cart.id, itemId).subscribe(res => {
-            debugger;
             let index = this._cart.items.findIndex(d => d.id === itemId);
             this._cart.items.splice(index, 1);
             this._cacheService.set(Constants.CacheKey.CartInfo, this._cart);

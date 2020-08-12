@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '@core/services/auth.service';
+import { UserSessionService } from '@core/services/user-session.service';
 import { environment } from '@env/environment';
 import { Router } from '@angular/router';
 import { CacheService } from '@core/services/cache.service';
@@ -17,7 +17,7 @@ export class HeaderComponent implements OnInit {
     logoPath = '';
     userName = '';
     itemCount: number = 0;
-    constructor(private _authService: AuthService,
+    constructor(private _authService: UserSessionService,
         private _cacheService: CacheService,
         private _eventBrokerService: EventBrokerService,
         private _cartService: CartService,
@@ -44,7 +44,6 @@ export class HeaderComponent implements OnInit {
     cartCountSubscription() {
         this._cartService.getCart();
         this._eventBrokerService.subscribe(Constants.Events.CartCount).subscribe(res => {
-            debugger;
             this.itemCount = res;
         });
     }

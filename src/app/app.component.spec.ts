@@ -22,9 +22,9 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'rpa'`, () => {
-    const fixture = 'rpa';
-    const app = 'rpa';
-    expect(app).toEqual('rpa');
+  it(`should have as title 'admin'`, () => {
+    const fixture = 'admin';
+    const app = 'admin';
+    expect(app).toEqual('admin');
   });
 });

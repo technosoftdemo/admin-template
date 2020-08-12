@@ -3,7 +3,7 @@ import { LocalStorageService } from "angular-2-local-storage";
 import { Router } from "@angular/router";
 import { HttpClient } from "@angular/common/http";
 import { CookieService } from 'ngx-cookie-service';
-import { AuthService } from '@core/services/auth.service';
+import { UserSessionService } from '@core/services/user-session.service';
 import { EventBrokerService } from '@core/services/event-broker.service';
 import { Constants } from '@core/constants/cachekey.constant';
 
@@ -16,7 +16,7 @@ import { Constants } from '@core/constants/cachekey.constant';
 export class AppComponent implements OnInit {
   title = 'TechMonks';
 
-  constructor(private _authService: AuthService,
+  constructor(private _authService: UserSessionService,
     private _eventBrokerService: EventBrokerService,
     private _router: Router) {
   }

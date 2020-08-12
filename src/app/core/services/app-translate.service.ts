@@ -36,7 +36,7 @@ export class AppTranslateService implements TranslateLoader, OnInit {
         //this.country = this.cookieService.get(Constants.CacheKey.countryCode) || 'usa';
         let languageUrl: string;
         if (environment.cdnURL) {
-            languageUrl = environment.cdnURL + '/portals/rpa/template1/json/'
+            languageUrl = environment.cdnURL + '/portals/admin/template1/json/'
                 + 'USA' + '/' + language + '.json';
         }
         else {

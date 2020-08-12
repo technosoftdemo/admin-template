@@ -5,6 +5,7 @@ import { ProductsDisplayComponent } from './components/products-display.componen
 import { CategoriesListComponent } from './components/categories-list.component';
 import { ProductsListComponent } from './components/products-list.component';
 import { ProductComponent } from './components/product.component';
+import { ProductDetailComponent } from './components/product-detail.component';
 
 
 @NgModule({
@@ -12,7 +13,8 @@ import { ProductComponent } from './components/product.component';
         ProductsDisplayComponent,
         CategoriesListComponent,
         ProductsListComponent,
-        ProductComponent
+        ProductComponent,
+        ProductDetailComponent
     ],
     imports: [
         ProductsRoutingModule,

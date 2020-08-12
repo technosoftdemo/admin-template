@@ -15,12 +15,12 @@ import { ClipboardModule } from 'ngx-clipboard';
 import { NgScrollbarModule } from 'ngx-scrollbar';
 import { ChartsModule } from 'ng2-charts';
 import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { NotificationToasterService } from './services/notification-toaster.service';
 import { CookieService } from 'ngx-cookie-service';
 import { AppShellNoRenderDirective } from './directives/app-shell-no-render.directive';
 import { AppShellRenderDirective } from './directives/app-shell-render.directive';
+import { HasPrivilegeDirective } from './directives/has-privilege.directive';
 
 @NgModule({
   declarations: [
@@ -28,7 +28,8 @@ import { AppShellRenderDirective } from './directives/app-shell-render.directive
     AlertDialogComponent,
     EllipsisPipe,
     AppShellNoRenderDirective,
-    AppShellRenderDirective
+    AppShellRenderDirective,
+    HasPrivilegeDirective
   ],
   imports: [
     CommonModule,
@@ -67,7 +68,8 @@ import { AppShellRenderDirective } from './directives/app-shell-render.directive
     NgxMatSelectSearchModule,
     ToastrModule,
     AppShellNoRenderDirective,
-    AppShellRenderDirective
+    AppShellRenderDirective,
+    HasPrivilegeDirective
   ],
   providers: [DialogService, NotificationToasterService, CookieService],
   entryComponents: [

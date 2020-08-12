@@ -11,6 +11,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { FormsModule } from '@angular/forms';
 import { AuthGuard } from './guards/auth.guard';
 import { NoAuthGuard } from './guards/no-auth.guard';
+import { HasPrivilegeGuard } from './guards/has-privilege.guard';
 
 @NgModule({
   imports: [
@@ -20,7 +21,7 @@ import { NoAuthGuard } from './guards/no-auth.guard';
     FormsModule,
     RouterModule,
     LocalStorageModule.forRoot({
-      prefix: 'appflp360',
+      prefix: 'admin',
       storageType: 'localStorage'
     }),
     TranslateModule.forRoot({
@@ -31,7 +32,7 @@ import { NoAuthGuard } from './guards/no-auth.guard';
       }
     })
   ],
-  providers: [httpInterceptorProviders, AuthGuard, NoAuthGuard],
+  providers: [httpInterceptorProviders, AuthGuard, NoAuthGuard, HasPrivilegeGuard],
   exports: [TranslateModule]
 })
 export class CoreModule {

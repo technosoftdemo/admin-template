@@ -16,7 +16,6 @@ export class AppShellNoRenderDirective implements OnInit {
     }
 
     ngOnInit() {
-        debugger;
         if (isPlatformServer(this.platformId)) {
             this.viewContainer.clear();
         }

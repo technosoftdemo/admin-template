@@ -6,6 +6,7 @@ import { ProductService } from '@core/services/product-service';
 import { Constants } from '@core/constants/cachekey.constant';
 import { CartModel } from '@core/models/cart.model';
 import { CacheService } from '@core/services/cache.service';
+import { LoggerService } from '@core/services/logger/logger.service';
 
 @Component({
     selector: 'ts-products-display',
@@ -18,11 +19,12 @@ export class ProductsDisplayComponent implements OnInit {
 
     constructor(private _categoryService:CategoryService,
         private _productService: ProductService,
-        private _cacheService:CacheService){
-
+        private _cacheService:CacheService,
+        private _loggerService:LoggerService){
     }
 
     ngOnInit(): void {
+        this._loggerService.log('Products','ngOnInit', 'Loading products');
         this.loadcategories();
         this.loadProducts(1);
     }

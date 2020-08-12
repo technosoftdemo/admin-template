@@ -47,4 +47,4 @@ EXPOSE 80
 #Run NGINX
 #CMD ["nginx", "-g", "daemon off;"]
 CMD [ "npm", "run", "serve:ssr" ]
-#CMD ["node", "dist/rpa-server/main.js"]
+#CMD ["node", "dist/admin-server/main.js"]

@@ -4,12 +4,12 @@ import { CookieService } from 'ngx-cookie-service';
 import { environment } from '@env/environment';
 import { EncryptionService } from '@core/services/encryption.service';
 import { Enums } from '@core/Enums/realmtype.enum';
-import { AuthService } from '@core/services/auth.service';
+import { UserSessionService } from '@core/services/user-session.service';
 
 @Injectable({ providedIn: 'root' })
 export class AuthInterceptor implements HttpInterceptor {
 
-    constructor(private cookieService: CookieService, private _authService: AuthService) { }
+    constructor(private cookieService: CookieService, private _authService: UserSessionService) { }
 
     intercept(req: HttpRequest<any>, next: HttpHandler) {
         /*

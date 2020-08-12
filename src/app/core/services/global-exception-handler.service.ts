@@ -1,5 +1,5 @@
 import { ErrorHandler, Injectable, Injector } from '@angular/core';
-import { LoggerService } from './logger.service';
+import { LoggerService } from './logger/logger.service';
 import { HttpErrorResponse } from '@angular/common/http';
 
 @Injectable()
@@ -16,7 +16,7 @@ export class GlobalExceptionHandler extends ErrorHandler {
 
     handleError(error: Error | HttpErrorResponse): void {
         const logger = this._injector.get(LoggerService);
-        logger.logError(error);
+        logger.error('Global Exception Handler','handleError','error',error);
     }
 
 }

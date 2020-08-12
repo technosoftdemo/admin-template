@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "rpa": {
+    "admin": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -69,18 +69,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "rpa:build"
+            "browserTarget": "admin:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "rpa:build:production"
+              "browserTarget": "admin:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "rpa:build"
+            "browserTarget": "admin:build"
           }
         },
         "test": {
@@ -118,18 +118,18 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "rpa:serve"
+            "devServerTarget": "admin:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "rpa:serve:production"
+              "devServerTarget": "admin:serve:production"
             }
           }
         },
         "server": {
           "builder": "@angular-devkit/build-angular:server",
           "options": {
-            "outputPath": "dist/rpa-server",
+            "outputPath": "dist/admin-server",
             "main": "server.ts",
             "tsConfig": "tsconfig.server.json"
           },
@@ -152,21 +152,21 @@
         "serve-ssr": {
           "builder": "@nguniversal/builders:ssr-dev-server",
           "options": {
-            "browserTarget": "rpa:build",
-            "serverTarget": "rpa:server"
+            "browserTarget": "admin:build",
+            "serverTarget": "admin:server"
           },
           "configurations": {
             "production": {
-              "browserTarget": "rpa:build:production",
-              "serverTarget": "rpa:server:production"
+              "browserTarget": "admin:build:production",
+              "serverTarget": "admin:server:production"
             }
           }
         },
         "prerender": {
           "builder": "@nguniversal/builders:prerender",
           "options": {
-            "browserTarget": "rpa:build:production",
-            "serverTarget": "rpa:server:production",
+            "browserTarget": "admin:build:production",
+            "serverTarget": "admin:server:production",
             "routes": [
               "/"
             ]
@@ -178,7 +178,7 @@
       }
     }
   },
-  "defaultProject": "rpa",
+  "defaultProject": "admin",
   "cli": {
     "analytics": "17eae39a-f0fd-4cb5-ba65-9de42ae8a59e"
   }

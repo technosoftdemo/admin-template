@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { AuthService } from '@core/services/auth.service';
+import { UserSessionService } from '@core/services/user-session.service';
 import { CacheService } from '@core/services/cache.service';
 import { LoginService } from '@core/services/login.service';
 import { UserModel } from '@core/models/user.interface';
@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
 
     constructor(private _formBuilder: FormBuilder,
         private _router: Router,
-        private _authService: AuthService, 
+        private _authService: UserSessionService,
         private _cacheService: CacheService,
         private _eventBrokerService: EventBrokerService,
         private _loginService: LoginService) {
@@ -32,11 +32,11 @@ export class LoginComponent implements OnInit {
         console.log('Loading login component');
         this._eventBrokerService.publish(Constants.Events.Logout);
     }
-/**
- * Authenticate User with provided credentials
- * @param loginModel 
- * @param isValid 
- */
+    /**
+     * Authenticate User with provided credentials
+     * @param loginModel 
+     * @param isValid 
+     */
     login(loginModel: LoginModel, isValid) {
         console.log(loginModel, {});
         this._loginService.authenticateUser(loginModel).subscribe(x => {
@@ -59,7 +59,8 @@ export class LoginComponent implements OnInit {
             middleName: loginResponseModel.middleName,
             lastName: loginResponseModel.lastName,
             id: loginResponseModel.id,
-            userName: loginResponseModel.userName
+            userName: loginResponseModel.userName,
+            privileges: []
         }
         return userDetails;
     }

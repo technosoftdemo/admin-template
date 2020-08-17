@@ -10,6 +10,6 @@ export class ProductService {
     constructor(private _apiClient: ApiClient) { }
     getProductsByCategoryId(categoryId:number): Observable<ProductModel[]> {
         return this._apiClient
-            .get(environment.productsApiSuffix + `/v1/categories/${categoryId}/products`);
+            .get(`${environment.apiUrl}${environment.productsApiSuffix}/v1/categories/${categoryId}/products`);
     }
 }

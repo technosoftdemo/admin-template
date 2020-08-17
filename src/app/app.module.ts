@@ -18,7 +18,6 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { CommonModule } from '@angular/common';
 import { ToastrModule } from 'ngx-toastr';
-import {TransferHttpCacheModule} from '@nguniversal/common';
 
 @NgModule({
   declarations: [HeaderComponent, AppComponent,
@@ -27,8 +26,6 @@ import {TransferHttpCacheModule} from '@nguniversal/common';
   imports: [
     CommonModule,
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
-    TransferHttpCacheModule,
-    BrowserTransferStateModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     CoreModule,
@@ -36,7 +33,7 @@ import {TransferHttpCacheModule} from '@nguniversal/common';
     HttpClientModule,
     MaterialModule,
     FlexLayoutModule,
-    ToastrModule.forRoot(),
+    ToastrModule.forRoot()
     //ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [CookieService],

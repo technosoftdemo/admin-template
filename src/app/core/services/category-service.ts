@@ -9,6 +9,6 @@ export class CategoryService {
     constructor(private _apiClient: ApiClient) { }
     getCategoires(): Observable<CategoryModel[]> {
         return this._apiClient
-            .get(`${environment.productsApiSuffix}/v1/categories`);
+            .get(`${environment.apiUrl}${environment.productsApiSuffix}/v1/categories`);
     }
 }

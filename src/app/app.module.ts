@@ -26,6 +26,8 @@ import { TransferHttpCacheModule } from '@nguniversal/common';
     LoginLayoutComponent],
   imports: [
     CommonModule,
+    BrowserModule.withServerTransition({ appId: 'my-app' }),
+    TransferHttpCacheModule,
     //BrowserModule.withServerTransition({ appId: 'serverApp' }),
     BrowserAnimationsModule,
     AppRoutingModule,

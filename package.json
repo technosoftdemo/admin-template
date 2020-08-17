@@ -14,6 +14,7 @@
     "dev:ssr": "ng run admin:serve-ssr",
     "serve:ssr": "node dist/admin-server/main.js",
     "build:ssr": "ng build --prod && ng run admin:server:production",
+    "start:ssr": "npm run build:ssr && npm run serve:ssr",
     "prerender": "ng run admin:prerender"
   },
   "private": true,

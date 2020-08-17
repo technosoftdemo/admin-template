@@ -7,8 +7,7 @@ import { AppModule } from './app.module';
 @NgModule({
     imports: [
         AppModule,
-        BrowserModule.withServerTransition({ appId: 'my-app' }),
-        TransferHttpCacheModule,
+        
     ],
     bootstrap: [AppComponent]
 })

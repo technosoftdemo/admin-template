@@ -17,7 +17,6 @@ import { HasPrivilegeGuard } from './guards/has-privilege.guard';
   imports: [
     CommonModule,
     HttpClientModule,
-    BrowserModule,
     FormsModule,
     RouterModule,
     LocalStorageModule.forRoot({

@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, BrowserTransferStateModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -28,6 +28,7 @@ import {TransferHttpCacheModule} from '@nguniversal/common';
     CommonModule,
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     TransferHttpCacheModule,
+    BrowserTransferStateModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     CoreModule,
@@ -36,7 +37,7 @@ import {TransferHttpCacheModule} from '@nguniversal/common';
     MaterialModule,
     FlexLayoutModule,
     ToastrModule.forRoot(),
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+    //ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [CookieService],
   bootstrap: [AppComponent]

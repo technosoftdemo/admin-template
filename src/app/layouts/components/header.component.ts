@@ -58,7 +58,9 @@ export class HeaderComponent implements OnInit {
     }
 
     setImagePath(): void {
-        this.logoPath = (environment.production === true ? 'img/logo.png' : 'assets/img/logo.png');
+        //this.logoPath = (environment.production === true ? 'img/logo.png' : 'assets/img/logo.png');
+        this.logoPath = 'assets/img/logo.png';
+
     }
 
     setUserName() {

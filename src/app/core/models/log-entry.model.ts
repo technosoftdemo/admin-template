@@ -9,6 +9,7 @@ export class LogEntry {
     logWithDate: boolean = true;
     pageName: string = "";
     section: string = "";
+    userName: string = "";
 
     buildLogString(): string {
         let value: string = "";

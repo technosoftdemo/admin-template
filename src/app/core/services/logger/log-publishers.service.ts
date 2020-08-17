@@ -26,7 +26,7 @@ export class LogPublishersService {
     // Create instance of LogLocalStorage Class
     this.publishers.push(new LogLocalStorage());
 
-    // Create instance of LogWebApi Class
-    // this.publishers.push(new LogWebApi(this._apiClient));
+    //Create instance of LogWebApi Class
+    this.publishers.push(new LogWebApi(this._apiClient));
   }
 }

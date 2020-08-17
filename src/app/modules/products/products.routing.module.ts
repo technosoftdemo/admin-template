@@ -13,7 +13,7 @@ export const routes: Routes = [
         path: ':id',
         component: ProductDetailComponent,
         canActivate: [HasPrivilegeGuard],
-        data: { privileges: ['View_ProductDetail'] }
+        data: { privileges: ['View_ProductDetail1'] }
     }
 ];
 

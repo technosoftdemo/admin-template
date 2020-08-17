@@ -3,6 +3,7 @@ import { LogEntry } from '@core/models/log-entry.model';
 import { HttpClient } from '@angular/common/http';
 import { response } from 'express';
 import { ApiClient } from '../api-client.service';
+import { environment } from '@env/environment';
 
 // ****************************************************
 // Log Publisher Abstract Class
@@ -83,7 +84,7 @@ export class LogWebApi extends LogPublisher {
     // Must call super() from derived classes
     super();
     // Set location
-    this.location = "/api/logging";
+    this.location = `${environment.logApiUrl}`;
   }
 
   // Add log entry to back end data store

@@ -8,7 +8,8 @@ export const environment = {
   encryptionKey:'',
   cdnURL:'',
   apiGatewayUrl:'https://tedapi.technosoftcorp.net/',
-  codeQualityUrl:'https://tedapi.technosoftcorp.net/usr-api/'
+  codeQualityUrl:'https://tedapi.technosoftcorp.net/usr-api/',
+  logApiUrl:'https://tedapi.technosoftcorp.net/products-api/v1/logs'
 };
  // apiGatewayUrl:'https://rdted.technosoftcorp.net/api',
  // codeQualityUrl:'https://rdted.technosoftcorp.net/cqapi/'

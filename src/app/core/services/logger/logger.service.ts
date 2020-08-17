@@ -3,11 +3,13 @@ import { LogEntry } from '@core/models/log-entry.model';
 import { LogLevel } from '@core/Enums/log-level.enum';
 import { LogPublisher } from './log-publishers';
 import { LogPublishersService } from './log-publishers.service';
+import { UserSessionService } from '../user-session.service';
 
 @Injectable({ providedIn: 'root' })
 export class LoggerService {
 
-    constructor(private publishersService: LogPublishersService) {
+    constructor(private publishersService: LogPublishersService,
+        private _userSessionService: UserSessionService) {
         // Set publishers
         this.publishers = this.publishersService.publishers;
     }
@@ -38,7 +40,7 @@ export class LoggerService {
     }
 
     log(pageName: string, pageSection: string, msg: string, ...optionalParams: any[]) {
-        this.writeToLog(pageName, pageSection, msg, LogLevel.All, optionalParams);
+        this.writeToLog(pageName, pageSection, msg, LogLevel.Activity, optionalParams);
     }
 
     clear(): void {
@@ -74,7 +76,9 @@ export class LoggerService {
             entry.section = section;
             entry.extraInfo = params;
             entry.logWithDate = this.logWithDate;
-
+            let userName = this._userSessionService.userName
+                ? this._userSessionService.userName : 'Annonymous User';
+            entry.userName = userName;
             for (let logger of this.publishers) {
                 logger.log(entry)
                     .subscribe(response => console.log(response));

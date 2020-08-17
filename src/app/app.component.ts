@@ -27,7 +27,7 @@ export class AppComponent implements OnInit {
     this._eventBrokerService.register(Constants.Events.Logout);
     this._eventBrokerService.register(Constants.Events.CartCount);
     this._eventBrokerService.register(Constants.Events.reloadCart);
-    this.registerRouteEvents();
+    //this.registerRouteEvents();
   }
 
   /**

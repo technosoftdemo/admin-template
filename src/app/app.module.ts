@@ -26,7 +26,7 @@ import { TransferHttpCacheModule } from '@nguniversal/common';
     LoginLayoutComponent],
   imports: [
     CommonModule,
-    BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    //BrowserModule.withServerTransition({ appId: 'serverApp' }),
     BrowserAnimationsModule,
     AppRoutingModule,
     CoreModule,
@@ -35,7 +35,7 @@ import { TransferHttpCacheModule } from '@nguniversal/common';
     MaterialModule,
     FlexLayoutModule,
     ToastrModule.forRoot(),
-    TransferHttpCacheModule
+    //TransferHttpCacheModule
     //ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [CookieService],

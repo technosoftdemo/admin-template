@@ -3,6 +3,7 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 import { AppModule } from './app/app.module';
 import { environment } from "@env/environment";
+import { AppBrowserModule } from 'app/app.browser.module';
 
 declare let apiConfig: any;
 if (environment.production) {
@@ -16,6 +17,6 @@ if (environment.production) {
 }
 //Bootstraping App Module and log error in console incase of error
 document.addEventListener('DOMContentLoaded', () => {
-  platformBrowserDynamic().bootstrapModule(AppModule)
+  platformBrowserDynamic().bootstrapModule(AppBrowserModule)
     .catch(err => console.error(err));
 });

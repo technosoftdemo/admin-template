@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
 import { LocalStorageService } from "angular-2-local-storage";
 import { Router, RoutesRecognized, NavigationEnd } from "@angular/router";
 import { HttpClient } from "@angular/common/http";
@@ -7,6 +7,7 @@ import { UserSessionService } from '@core/services/user-session.service';
 import { EventBrokerService } from '@core/services/event-broker.service';
 import { Constants } from '@core/constants/cachekey.constant';
 import { LoggerService } from './core';
+import { isPlatformServer } from '@angular/common';
 
 
 @Component({
@@ -20,14 +21,17 @@ export class AppComponent implements OnInit {
   constructor(private _authService: UserSessionService,
     private _eventBrokerService: EventBrokerService,
     private _router: Router,
-    private _loggerService: LoggerService) {
+    private _loggerService: LoggerService,
+    @Inject(PLATFORM_ID) private platformId) {
   }
 
   ngOnInit() {
     this._eventBrokerService.register(Constants.Events.Logout);
     this._eventBrokerService.register(Constants.Events.CartCount);
     this._eventBrokerService.register(Constants.Events.reloadCart);
-    //this.registerRouteEvents();
+    if (isPlatformServer(this.platformId) === false) {
+      this.registerRouteEvents();
+    }
   }
 
   /**

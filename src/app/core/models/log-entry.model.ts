@@ -8,7 +8,7 @@ export class LogEntry {
     extraInfo: any[] = [];
     logWithDate: boolean = true;
     pageName: string = "";
-    section: string = "";
+    pageSection: string = "";
     userName: string = "";
 
     buildLogString(): string {
@@ -19,7 +19,7 @@ export class LogEntry {
         }
         value += "Type: " + LogLevel[this.level];
         value += " - Page: " + this.pageName;
-        value += " - Section: " + this.section;
+        value += " - Section: " + this.pageSection;
         value += " - Message: " + this.message;
         if (this.extraInfo.length) {
             value += " - Extra Info: "

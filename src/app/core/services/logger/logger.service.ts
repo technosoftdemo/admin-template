@@ -73,7 +73,7 @@ export class LoggerService {
             entry.message = msg;
             entry.level = level;
             entry.pageName = pagename;
-            entry.section = section;
+            entry.pageSection = section;
             entry.extraInfo = params;
             entry.logWithDate = this.logWithDate;
             let userName = this._userSessionService.userName

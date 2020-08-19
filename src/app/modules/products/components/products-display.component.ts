@@ -24,7 +24,7 @@ export class ProductsDisplayComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this._loggerService.log('Products','ngOnInit', 'Loading products');
+        //this._loggerService.log('Products','ngOnInit', 'Loading products');
         this.loadcategories();
         this.loadProducts(1);
     }

@@ -41,8 +41,8 @@ RUN npm run postinstall && \
 #EXPOSE 80
 
 ENV NODE_ENV "production"
-ENV PORT 80
-EXPOSE 80
+ENV PORT 4000
+EXPOSE 4000
 #CMD ["http-server"]
 #Run NGINX
 #CMD ["nginx", "-g", "daemon off;"]

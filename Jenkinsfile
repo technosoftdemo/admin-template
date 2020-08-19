@@ -120,7 +120,7 @@ pipeline {
 	  script {
         //sh "docker stop fireball"
          sh "sudo docker rm -f admin || true"
-        sh "sudo docker run --name admin -d -p 9090:80 "+registry+":"+versionNumber
+        sh "sudo docker run --name admin -d -p 9090:4000 "+registry+":"+versionNumber
 		}
       }
     }

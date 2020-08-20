@@ -29,7 +29,7 @@ export class LogPublishersService {
     // this.publishers.push(new LogLocalStorage());
     if (isPlatformServer(this.platformId) === false) {
       //Create instance of LogWebApi Class
-      this.publishers.push(new LogWebApi(this._apiClient));
+      // this.publishers.push(new LogWebApi(this._apiClient));
     }
 
   }

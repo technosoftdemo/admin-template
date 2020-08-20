@@ -30,7 +30,8 @@ export class AppComponent implements OnInit {
     this._eventBrokerService.register(Constants.Events.CartCount);
     this._eventBrokerService.register(Constants.Events.reloadCart);
     if (isPlatformServer(this.platformId) === false) {
-      this.registerRouteEvents();
+      console.log('entering into registration block');
+      //this.registerRouteEvents();
     }
   }
 
